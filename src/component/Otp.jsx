@@ -75,6 +75,8 @@ export default function EnterOtp({handleSetStep}) {
   return (
     <>
       <div className="w-[80%] lg:w-[40%] mx-auto mt-[6rem] flex flex-col items-center">
+      <button type="button" className="bg-purple-800 text-white p-2 rounded-sm" onClick={()=>handleSetStep(1)}>Go Back</button>
+
         <p className="text-center">Please Enter the OTP sent to your Email</p>
         <p className="text-center mt-4">Use <span className="font-bold">1234</span> as default</p>
 

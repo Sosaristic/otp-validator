@@ -16,7 +16,7 @@ input[type = "number"]::-webkit-outer-spin-button{
     display: inline-block;
     position: relative;
     border: 3px solid;
-    border-color: #c74aae #c74aae transparent transparent;
+    border-color: #77436d #77436d transparent transparent;
     box-sizing: border-box;
     animation: rotation 1s linear infinite;
   }
@@ -31,7 +31,7 @@ input[type = "number"]::-webkit-outer-spin-button{
     bottom: 0;
     margin: auto;
     border: 3px solid;
-    border-color: transparent transparent #c74aae #c74aae;
+    border-color: transparent transparent #77436d #77436d;
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -42,7 +42,7 @@ input[type = "number"]::-webkit-outer-spin-button{
   .loader::before {
     width: 32px;
     height: 32px;
-    border-color: transparent transparent #c74aae #c74aae;
+    border-color: transparent transparent #77436d #77436d;
 
     animation: rotation 1.5s linear infinite;
   }
@@ -62,5 +62,8 @@ input[type = "number"]::-webkit-outer-spin-button{
     100% {
       transform: rotate(-360deg);
     }
+  }
+  .popover {
+    background-color: rgba(93, 87, 94, 0.2);
   }
 }

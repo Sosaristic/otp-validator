@@ -11,8 +11,8 @@ function Input({ id, inputRef }) {
     />
   );
 }
-export default function EnterOtp({handleSetStep}) {
-  const [errMessage, setErrMessage] = useState(false)
+export default function EnterOtp({ handleSetStep, handleSetLoader }) {
+  const [errMessage, setErrMessage] = useState(false);
   const formRef = useRef(null);
   const input1Ref = useRef(null);
   const defaultOtp = "1234";
@@ -21,7 +21,7 @@ export default function EnterOtp({handleSetStep}) {
     const form = formRef?.current;
     const children = Array.from(form.children);
     children.forEach((child) => {
-      child.value = ""
+      child.value = "";
       child.disabled = true;
     });
     input1Ref.current.disabled = false;
@@ -48,7 +48,7 @@ export default function EnterOtp({handleSetStep}) {
       children[index].disabled = true;
       submitOtp();
     }
-    if (keyCode === 8 && index >0 && index <= children.length) {
+    if (keyCode === 8 && index > 0 && index <= children.length) {
       // when backspace is clicked
       children[index].value = "";
       children[index].disabled = true;
@@ -59,7 +59,7 @@ export default function EnterOtp({handleSetStep}) {
 
     function submitOtp() {
       if (defaultOtp != inputValues.join("")) {
-        setErrMessage(true)
+        setErrMessage(true);
         children.forEach((child) => {
           child.value = "";
           child.disabled = true;
@@ -67,30 +67,45 @@ export default function EnterOtp({handleSetStep}) {
         children[0].disabled = false;
         children[0].focus();
       } else {
-        setErrMessage(false)
-        handleSetStep(3)
+        setErrMessage(false);
+        handleSetLoader(true);
+        const promise = new Promise(function (resolve, reject) {
+          setTimeout(() => {
+            resolve();
+          }, 1000);
+        });
+        promise.then(() => {
+          handleSetLoader(false);
+          handleSetStep(3);
+        });
       }
     }
   };
   return (
     <>
       <div className="w-[80%] lg:w-[40%] mx-auto mt-[6rem] flex flex-col items-center">
-      <button type="button" className="bg-purple-800 text-white p-2 rounded-sm" onClick={()=>handleSetStep(1)}>Go Back</button>
+        <button
+          type="button"
+          className="bg-purple-800 text-white p-2 rounded-sm"
+          onClick={() => handleSetStep(1)}
+        >
+          Go Back
+        </button>
 
         <p className="text-center">Please Enter the OTP sent to your Email</p>
-        <p className="text-center mt-4">Use <span className="font-bold">1234</span> as default</p>
+        <p className="text-center mt-4">
+          Use <span className="font-bold">1234</span> as default
+        </p>
 
-        <form
-          ref={formRef}
-          onKeyUp={handleOnKeyUp}
-          className=" mx-auto relative flex gap-1 mt-4"
-        >
+        <form ref={formRef} onKeyUp={handleOnKeyUp} className=" mx-auto relative flex gap-1 mt-4">
           <Input inputRef={input1Ref} />
           <Input />
           <Input />
           <Input />
         </form>
-        {errMessage && <p className="text-center mt-2 text-sm text-red-600">OTP is not correct, Try Again</p>}
+        {errMessage && (
+          <p className="text-center mt-2 text-sm text-red-600">OTP is not correct, Try Again</p>
+        )}
       </div>
     </>
   );

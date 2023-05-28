@@ -48,7 +48,7 @@ export default function EnterOtp({handleSetStep}) {
       children[index].disabled = true;
       submitOtp();
     }
-    if (keyCode === 8 && index <= children.length) {
+    if (keyCode === 8 && index >0 && index <= children.length) {
       // when backspace is clicked
       children[index].value = "";
       children[index].disabled = true;

@@ -74,14 +74,14 @@ export default function EnterOtp({handleSetStep}) {
   };
   return (
     <>
-      <div className="w-[80%] lg:w-[40%] mx-auto mt-[6rem]">
+      <div className="w-[80%] lg:w-[40%] mx-auto mt-[6rem] flex flex-col items-center">
         <p className="text-center">Please Enter the OTP sent to your Email</p>
         <p className="text-center mt-4">Use <span className="font-bold">1234</span> as default</p>
 
         <form
           ref={formRef}
           onKeyUp={handleOnKeyUp}
-          className="w-[40%] mx-auto relative flex gap-1 mt-4"
+          className=" mx-auto relative flex gap-1 mt-4"
         >
           <Input inputRef={input1Ref} />
           <Input />

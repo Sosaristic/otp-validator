@@ -23,11 +23,13 @@ useEffect(()=>{
     handleSetStep(2)
   };
   return (
-    <div>
-      <form className="flex flex-col gap-4 w-[80%] lg:w-[40%] mx-auto mt-8" onSubmit={handleSubmit}>
+    <div className=" w-[80%] lg:w-[40%] mx-auto">
+        <h2 className="text-center text-[1.2rem] text-purple-800 mt-4 font-bold">Registration Form</h2>
+        <p className="mt-4 text-purple-700">Note: All fields mark <span className="font-bold text-black">*</span> are required</p>
+      <form className="flex flex-col gap-4 mx-auto mt-8" onSubmit={handleSubmit}>
         <div className="flex flex-col gap-1">
           <label htmlFor="name" className="font-semibold">
-            Name
+            Name*
           </label>
           <input
           ref={firstInputRef}
@@ -44,7 +46,7 @@ useEffect(()=>{
         </div>
         <div className="flex flex-col gap-1">
           <label htmlFor="name" className="font-semibold">
-            Email
+            Email*
           </label>
           <input
             type="text"

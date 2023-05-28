@@ -49,7 +49,7 @@ useEffect(()=>{
             Email*
           </label>
           <input
-            type="text"
+            type="email"
             id="name"
             name="email"
             value={inputValues.email}

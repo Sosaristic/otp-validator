@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 function Input({ id, inputRef }) {
   return (
     <input
-      type="text"
+      type="number"
       id={id}
       className="outline-none border border-gray-800 h-[3rem] w-[3rem] flex-1 text-center rounded-sm disabled:text-white disabled:font-[700] disabled:bg-purple-800 disabled:border-purple-800 focus:border-purple-800"
       ref={inputRef}
